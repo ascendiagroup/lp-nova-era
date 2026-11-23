@@ -6,7 +6,7 @@ const SHEET_NAME = 'Leads';
 const HEADERS = [
   'Data/hora', 'Nome', 'WhatsApp', 'Interesse', 'Tipo', 'Botão (CTA)', 'ad_id',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
-  'gclid', 'fbclid', 'Página', 'Origem (referrer)', 'Status'
+  'gclid', 'gbraid', 'wbraid', 'fbclid', 'Página', 'Origem (referrer)', 'Status'
 ];
 
 function doPost(e) {
@@ -25,7 +25,7 @@ function doPost(e) {
   const row = [
     new Date(), name, "'" + phone, text(data.interest, 80), text(data.kind, 20), text(data.cta, 64),
     text(data.adId, 80), text(data.utm_source), text(data.utm_medium), text(data.utm_campaign),
-    text(data.utm_content), text(data.utm_term), text(data.gclid), text(data.fbclid),
+    text(data.utm_content), text(data.utm_term), text(data.gclid), text(data.gbraid), text(data.wbraid), text(data.fbclid),
     text(data.page, 300), text(data.referrer, 300), ''
   ];
 
