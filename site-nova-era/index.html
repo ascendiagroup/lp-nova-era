@@ -37,6 +37,25 @@
 @media(max-width:700px){.exam-summary{grid-template-columns:1fr;gap:24px;padding:30px 24px}.exam-types{gap:0 18px}.exam-types li{font-size:12px;padding:17px 0}.exam-summary-copy>p:not(.eyebrow){font-size:14px}.exam-summary-copy .button{font-size:12px;padding:15px 17px}.exam-summary-copy h2{font-size:32px}}
 @media(max-width:370px){.exam-types{grid-template-columns:1fr}.exam-summary{padding:26px 20px}.exam-summary-copy .button{font-size:11px;padding:14px}}
 
+.exam-types li{padding:0}
+.exam-chip{display:flex;align-items:center;gap:10px;width:100%;padding:22px 0;border:0;background:none;font:inherit;font-weight:600;color:inherit;text-align:left;cursor:pointer;transition:color .2s}
+.exam-chip>.icon{width:19px;height:19px;color:var(--teal);flex-shrink:0}
+.exam-chip::after{content:"→";margin-left:auto;color:var(--teal);opacity:.55;transition:opacity .2s,transform .2s}
+.exam-chip:hover,.exam-chip:focus-visible{color:var(--teal)}
+.exam-chip:hover::after,.exam-chip:focus-visible::after{opacity:1;transform:translateX(3px)}
+@media(max-width:1000px){.exam-chip{padding:17px 0}}
+.lead-dialog h2{margin-bottom:10px}
+.lead-form{display:grid;gap:14px;margin-top:18px}
+.lead-field{display:grid;gap:6px;font-size:12px;font-weight:650;color:var(--navy)}
+.lead-field input,.lead-field select{width:100%;min-height:50px;border:1px solid #c7dbd7;border-radius:9px;padding:12px 14px;background:#fff;font:inherit;font-size:16px;font-weight:500;color:var(--ink)}
+.lead-field select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23063d53' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:38px}
+.lead-field input:focus,.lead-field select:focus{outline:3px solid #0584bc40;border-color:var(--blue)}
+.lead-field input[aria-invalid=true]{border-color:#c0392b}
+.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lead-error{margin:0;padding:10px 12px;border-radius:8px;background:#fdecea;color:#9b2c1f;font-size:13px}
+.lead-form .button{width:100%;margin-top:4px}
+.lead-consent{margin:0;font-size:11px;line-height:1.6;color:var(--muted)}
+.lead-privacy{border:0;background:none;padding:0;font:inherit;color:var(--blue);text-decoration:underline;cursor:pointer}
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"Nova Era Centro Médico e Diagnóstico por Imagem","telephone":"+556239813200","address":{"@type":"PostalAddress","streetAddress":"Rua Silva Bueno, Quadra 03, Lotes 24/25","addressLocality":"Aparecida de Goiânia","addressRegion":"GO","postalCode":"74916-287","addressCountry":"BR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"07:00","closes":"11:00"}]}</script>
 </head>
@@ -87,14 +106,14 @@
   <div class="exam-summary">
     <div class="exam-summary-copy"><p class="eyebrow">EXAMES E DIAGNÓSTICO</p><h2>Mais praticidade<br>para fazer <em>seus exames.</em></h2><p>Da rotina ao diagnóstico por imagem, encontre diferentes tipos de exames na Nova Era. Nossa equipe ajuda você a consultar valores, disponibilidade e orientações de preparo.</p><a class="button contact-link" data-contact-service="exames e procedimentos" href="tel:+556239813200"><span>Consultar exames pelo WhatsApp</span><svg class="icon"><use href="#i-arrow"/></svg></a></div>
     <ul class="exam-types" aria-label="Tipos de exames disponíveis">
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Ultrassom e Doppler</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Raio-X</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Tomografia</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Exames cardiológicos</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Mamografia</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Endoscopia</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Colonoscopia</span></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><span>Exames laboratoriais</span></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Ultrassom e Doppler" data-cta-id="EXAME_USG"><svg class="icon"><use href="#i-check"/></svg><span>Ultrassom e Doppler</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Raio-X" data-cta-id="EXAME_RAIOX"><svg class="icon"><use href="#i-check"/></svg><span>Raio-X</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Tomografia" data-cta-id="EXAME_TOMO"><svg class="icon"><use href="#i-check"/></svg><span>Tomografia</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Exames cardiológicos" data-cta-id="EXAME_CARDIOEX"><svg class="icon"><use href="#i-check"/></svg><span>Exames cardiológicos</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Mamografia" data-cta-id="EXAME_MAMO"><svg class="icon"><use href="#i-check"/></svg><span>Mamografia</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Endoscopia" data-cta-id="EXAME_ENDO"><svg class="icon"><use href="#i-check"/></svg><span>Endoscopia</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Colonoscopia" data-cta-id="EXAME_COLONO"><svg class="icon"><use href="#i-check"/></svg><span>Colonoscopia</span></button></li>
+      <li><button type="button" class="exam-chip contact-link" data-contact-service="Exames laboratoriais" data-cta-id="EXAME_LAB"><svg class="icon"><use href="#i-check"/></svg><span>Exames laboratoriais</span></button></li>
     </ul>
   </div>
 </div></section>
@@ -122,7 +141,8 @@
 <a class="floating-contact contact-link" href="tel:+556239813200" aria-label="Falar com a equipe Nova Era"><svg class="icon"><use href="#i-phone"/></svg><span>Vamos conversar?</span></a>
 
 <dialog id="service-dialog" class="service-dialog" aria-labelledby="dialog-title"><button class="dialog-close" data-close aria-label="Fechar detalhes"><svg class="icon"><use href="#i-x"/></svg></button><span class="dialog-icon"><svg class="icon"><use href="#i-cross"/></svg></span><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p id="dialog-detail"></p><p class="dialog-note">A equipe confirma disponibilidade, valor e orientações de preparo para o seu atendimento.</p><a class="button" id="dialog-contact" href="tel:+556239813200"><span>Falar sobre este atendimento</span><svg class="icon"><use href="#i-arrow"/></svg></a></dialog>
-<dialog id="privacy-dialog" class="service-dialog" aria-labelledby="privacy-title"><button class="dialog-close" data-close aria-label="Fechar privacidade"><svg class="icon"><use href="#i-x"/></svg></button><p class="eyebrow">PRIVACIDADE</p><h2 id="privacy-title">Seus dados e esta página.</h2><p>Esta página não solicita nome, documento ou informações de saúde. Para agendar seu atendimento, você pode falar diretamente com a equipe da clínica.</p><p>Ao abrir o mapa ou um canal de contato, você utiliza um serviço externo, sujeito às políticas do respectivo fornecedor. Os contatos de atendimento são realizados diretamente com a clínica.</p><p>Se precisar tratar de uma informação pessoal relacionada ao atendimento, entre em contato com a Nova Era pelo telefone (62) 3981-3200.</p></dialog>
+<dialog id="lead-dialog" class="service-dialog lead-dialog" aria-labelledby="lead-title"><button class="dialog-close" data-close aria-label="Fechar formulário"><svg class="icon"><use href="#i-x"/></svg></button><span class="dialog-icon"><svg class="icon"><use href="#i-message"/></svg></span><p class="eyebrow">ATENDIMENTO PELO WHATSAPP</p><h2 id="lead-title">Falta pouco para<br>falar com a equipe.</h2><p>Informe seu nome e seu WhatsApp. Em seguida, abrimos a conversa com a Nova Era.</p><form class="lead-form" id="lead-form" novalidate><label class="lead-field"><span>Seu nome</span><input id="lead-name" name="name" type="text" autocomplete="name" maxlength="80" required placeholder="Como podemos chamar você?"></label><label class="lead-field"><span>Seu WhatsApp</span><input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="16" required placeholder="(62) 99999-9999"></label><label class="lead-field"><span>O que você procura?</span><select id="lead-choice" name="choice"></select></label><label class="lead-hp" aria-hidden="true">Não preencha<input name="website" type="text" tabindex="-1" autocomplete="off"></label><p class="lead-error" id="lead-error" role="alert" hidden></p><button class="button" type="submit"><span>Continuar no WhatsApp</span><svg class="icon"><use href="#i-arrow"/></svg></button><p class="lead-consent">Ao continuar, você autoriza a Nova Era a entrar em contato pelo WhatsApp ou telefone informado para tratar do seu atendimento. <button type="button" class="lead-privacy" data-open-privacy>Privacidade</button></p></form></dialog>
+<dialog id="privacy-dialog" class="service-dialog" aria-labelledby="privacy-title"><button class="dialog-close" data-close aria-label="Fechar privacidade"><svg class="icon"><use href="#i-x"/></svg></button><p class="eyebrow">PRIVACIDADE</p><h2 id="privacy-title">Seus dados e esta página.</h2><p>Antes de abrir o WhatsApp, pedimos seu nome, seu telefone e o atendimento que você procura. Esses dados ficam com a equipe da Nova Era e são usados apenas para retornar o seu contato e organizar o agendamento. Não pedimos documentos nem informações sobre o seu estado de saúde.</p><p>Ao abrir o mapa ou um canal de contato, você utiliza um serviço externo, sujeito às políticas do respectivo fornecedor. Os contatos de atendimento são realizados diretamente com a clínica.</p><p>Se precisar tratar de uma informação pessoal relacionada ao atendimento, entre em contato com a Nova Era pelo telefone (62) 3981-3200.</p></dialog>
 <noscript><div class="noscript">Para visualizar todas as especialidades, ative o JavaScript. Para consultar ou agendar um serviço, ligue <a href="tel:+556239813200">(62) 3981-3200</a>.</div></noscript>
 <script>
 /* Configuração central dos canais de atendimento. WhatsApp: país + DDD + número, apenas dígitos. */
@@ -130,7 +150,10 @@ window.NOVA_ERA_CONFIG = {
   clinicName: 'Nova Era',
   phone: '556239813200',
   whatsapp: '556239813200',
-  message: 'Olá! Vim pelo site da Nova Era e gostaria de informações para agendar um atendimento.'
+  message: 'Olá! Vim pelo site da Nova Era e gostaria de informações para agendar um atendimento.',
+  /* URL do app da Web do Google Apps Script que grava os contatos na planilha (ver apps-script/README.md).
+     Vazio: o formulário continua funcionando e abre o WhatsApp, só não grava na planilha. */
+  leadEndpoint: ''
 };
 
 window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-002","name":"Consulta com clínico geral","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-003","name":"Consulta com gastroenterologista","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-004","name":"Consulta com proctologista","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-005","name":"Consulta com ortopedista","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-006","name":"Consulta com psiquiatra","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-007","name":"Consulta com ginecologista","group":"consultas","price":170,"walkIn":false,"sessionMinutes":null,"withoutContrast":false},{"id":"servico-008","name":"Consulta com psicólogo","group":"consultas","price":80,"walkIn":false,"sessionMinutes":60,"withoutContrast":false},{"id":"servico-177","name":"Consulta com dermatologista","group":"consultas","price":null,"walkIn":false,"sessionMinutes":null,"withoutContrast":false}];
@@ -148,9 +171,33 @@ window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista
     {code:'PSICO',label:'Psicologia',request:'uma sessão de psicologia',aliases:['psicologia','psicologo','psicologa','psico']},
     {code:'GINECO',label:'Ginecologia',request:'uma consulta com ginecologista',aliases:['ginecologia','ginecologista','gineco']}
   ];
+  const exams=[
+    {code:'USG',label:'Ultrassom e Doppler',request:'um exame de ultrassom ou Doppler',aliases:['ultrassom e doppler','ultrassom','ultrassonografia','ultrassom doppler','doppler','usg']},
+    {code:'RAIOX',label:'Raio-X',request:'um exame de raio-X',aliases:['raio x','raiox','rx']},
+    {code:'TOMO',label:'Tomografia',request:'uma tomografia',aliases:['tomografia','tomografia sem contraste']},
+    {code:'CARDIOEX',label:'Exames cardiológicos',request:'um exame cardiológico',aliases:['exames cardiologicos','exame cardiologico','eletrocardiograma','ecocardiograma','holter','mapa']},
+    {code:'MAMO',label:'Mamografia',request:'uma mamografia',aliases:['mamografia']},
+    {code:'ENDO',label:'Endoscopia',request:'uma endoscopia',aliases:['endoscopia']},
+    {code:'COLONO',label:'Colonoscopia',request:'uma colonoscopia',aliases:['colonoscopia']},
+    {code:'LAB',label:'Exames laboratoriais',request:'exames laboratoriais',aliases:['exames laboratoriais','exame laboratorial','laboratorio','exame de sangue']}
+  ];
+  specialties.forEach(s=>{s.kind='consulta';});
+  exams.forEach(e=>{e.kind='exame';});
+  const isGenericExam=value=>/exame|procedimento|ultrassom|doppler|tomografia|raio x|mamografia|endoscopia|colonoscopia|laboratorio/.test(normalize(value));
   function resolveSpecialty(value){
     const key=normalize(value).replace(/^consulta (com|de) /,'');
     return specialties.find(s=>s.aliases.includes(key))||null;
+  }
+  function resolveExam(value){
+    const key=normalize(value).replace(/^exames? (de )?/,'');
+    return exams.find(e=>e.aliases.includes(key)||e.aliases.includes(normalize(value)))||null;
+  }
+  // Atendimento indicado por um texto de botão: exame específico, consulta ou nada.
+  function resolveChoice(value){
+    return resolveExam(value)||resolveSpecialty(value);
+  }
+  function findByCode(code){
+    return specialties.concat(exams).find(item=>item.code===code)||null;
   }
   function readContext(){
     const params=new URLSearchParams(window.location.search);
@@ -161,23 +208,41 @@ window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista
     return {adId,specialty:resolveSpecialty(params.get('especialidade')||params.get('specialty'))};
   }
   function ctaCode(value){
-    return String(value||'CONTATO').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9_]/g,'_').replace(/_+/g,'_').slice(0,64)||'CONTATO';
+    return String(value||'CONTATO').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z0-9_]/g,'_').replace(/_+/g,'_').slice(0,64)||'CONTATO';
   }
-  function buildMessage({service,ctaId='CONTATO'}={}){
+  // Atendimento que o botão indica: o botão prevalece sobre a especialidade do anúncio.
+  // Retorna um item do catálogo, 'EXAMES' (exame ainda não escolhido) ou null.
+  function choiceFor(service){
+    const specific=resolveChoice(service);
+    if(specific)return specific;
+    if(isGenericExam(service))return 'EXAMES';
+    return readContext().specialty;
+  }
+  function buildMessage({service,choice,ctaId='CONTATO',name}={}){
     const context=readContext();
-    const isExam=/exame|procedimento|ultrassom|doppler|tomografia|raio x|mamografia|endoscopia|colonoscopia|laboratorio/.test(normalize(service));
-    // O atendimento escolhido no botão prevalece sobre a especialidade do anúncio.
-    const selected=isExam?null:(resolveSpecialty(service)||context.specialty);
+    const selected=choice!==undefined?choice:choiceFor(service);
     const clinic=window.NOVA_ERA_CONFIG?.clinicName||'Nova Era';
-    const greeting=isExam
-      ?`Olá! Vim pelo site da ${clinic} e gostaria de informações para agendar um exame.`
-      :selected?`Olá! Vim pelo site da ${clinic} e gostaria de agendar ${selected.request}.`
-      :`Olá! Vim pelo site da ${clinic} e gostaria de agendar um atendimento.`;
-    const interest=isExam?'Atendimento: Exames e procedimentos':selected?`Especialidade: ${selected.label}`:'Atendimento: A definir com a equipe';
-    return [greeting,'',interest,`Protocolo: NE-${ctaCode(ctaId)}`,`ad_id: ${context.adId||'não informado'}`].join('\n');
+    let greeting,interest;
+    if(selected==='EXAMES'){
+      greeting=`Olá! Vim pelo site da ${clinic} e gostaria de informações para agendar um exame.`;
+      interest='Atendimento: Exames e procedimentos';
+    }else if(selected&&selected.kind==='exame'){
+      greeting=`Olá! Vim pelo site da ${clinic} e gostaria de informações para agendar ${selected.request}.`;
+      interest=`Exame: ${selected.label}`;
+    }else if(selected){
+      greeting=`Olá! Vim pelo site da ${clinic} e gostaria de agendar ${selected.request}.`;
+      interest=`Especialidade: ${selected.label}`;
+    }else{
+      greeting=`Olá! Vim pelo site da ${clinic} e gostaria de agendar um atendimento.`;
+      interest='Atendimento: A definir com a equipe';
+    }
+    const lines=[greeting,'',interest];
+    if(name)lines.push(`Nome: ${name}`);
+    lines.push(`Protocolo: NE-${ctaCode(ctaId)}`,`ad_id: ${context.adId||'não informado'}`);
+    return lines.join('\n');
   }
   // Contexto somente em memória/URL, sem cookies nem armazenamento local.
-  window.NOVA_ERA_TRACKING=Object.freeze({readContext,resolveSpecialty,buildMessage});
+  window.NOVA_ERA_TRACKING=Object.freeze({readContext,resolveSpecialty,resolveExam,resolveChoice,choiceFor,findByCode,buildMessage,specialties,exams});
 })();
 
 'use strict';
@@ -194,6 +259,7 @@ window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista
   function setContact(el,service,ctaId){
     if(service!==undefined)el.dataset.contactService=service;
     if(ctaId)el.dataset.ctaId=ctaId;
+    if(el.tagName!=='A')return;
     el.href=contactUrl(el.dataset.contactService,el.dataset.ctaId||'CONTATO');
     if(whatsapp){el.target='_blank';el.rel='noopener noreferrer';}
   }
@@ -248,6 +314,97 @@ window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista
   menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')==='true';mobile.hidden=expanded;menu.setAttribute('aria-expanded',String(!expanded));menu.setAttribute('aria-label',expanded?'Abrir menu':'Fechar menu');});
   mobile.addEventListener('click',event=>{if(event.target.closest('a')){mobile.hidden=true;menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');}});
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobile.hidden){mobile.hidden=true;menu.setAttribute('aria-expanded','false');menu.focus();}});
+
+  /* Formulário intermediário: grava nome e telefone na planilha e depois abre o WhatsApp
+     com a mesma mensagem que o botão já enviava (atendimento escolhido + protocolo + ad_id). */
+  const T=window.NOVA_ERA_TRACKING;
+  const leadDialog=document.getElementById('lead-dialog');
+  const leadForm=document.getElementById('lead-form');
+  const leadName=document.getElementById('lead-name');
+  const leadPhone=document.getElementById('lead-phone');
+  const leadChoice=document.getElementById('lead-choice');
+  const leadError=document.getElementById('lead-error');
+  const opt=(value,label)=>{const o=document.createElement('option');o.value=value;o.textContent=label;return o;};
+  const group=(label,items)=>{const g=document.createElement('optgroup');g.label=label;items.forEach(i=>g.append(opt(i.code,i.label)));return g;};
+  leadChoice.append(opt('','Ainda não sei / quero falar com a equipe'),group('Consultas',T.specialties),group('Exames',T.exams.concat([{code:'EXAMES',label:'Outro exame ou procedimento'}])));
+  const lead={ctaId:'CONTATO',fallback:null,name:'',phone:''}; // apenas em memória, nesta visita
+  const digits=v=>String(v||'').replace(/\D/g,'');
+  function nationalDigits(v){let d=digits(v);if(d.length>11&&d.startsWith('55'))d=d.slice(2);return d.slice(0,11);}
+  function formatPhone(v){
+    const d=nationalDigits(v);
+    if(d.length<=2)return d.length?`(${d}`:'';
+    if(d.length<=6)return `(${d.slice(0,2)}) ${d.slice(2)}`;
+    if(d.length<=10)return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+    return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+  }
+  const validPhone=d=>/^[1-9]{2}(9\d{8}|[2-5]\d{7})$/.test(d);
+  leadPhone.addEventListener('input',()=>{leadPhone.value=formatPhone(leadPhone.value);leadPhone.removeAttribute('aria-invalid');});
+  leadName.addEventListener('input',()=>leadName.removeAttribute('aria-invalid'));
+  function showError(msg,field){leadError.textContent=msg;leadError.hidden=false;if(field){field.setAttribute('aria-invalid','true');field.focus();}}
+  function openLead(el){
+    const choice=T.choiceFor(el.dataset.contactService);
+    lead.ctaId=el.dataset.ctaId||'CONTATO';
+    lead.fallback=choice;
+    leadChoice.value=choice&&choice!=='EXAMES'?choice.code:'';
+    if(choice==='EXAMES')leadChoice.options[0].textContent='Selecione o exame (ou deixe para a equipe)';
+    else leadChoice.options[0].textContent='Ainda não sei / quero falar com a equipe';
+    leadName.value=lead.name;leadPhone.value=formatPhone(lead.phone);
+    leadError.hidden=true;leadName.removeAttribute('aria-invalid');leadPhone.removeAttribute('aria-invalid');
+    document.querySelectorAll('dialog[open]').forEach(d=>d.close());
+    leadDialog.showModal();
+    (lead.name?leadPhone:leadName).focus();
+    if(lead.name&&lead.phone)leadForm.querySelector('[type=submit]').focus();
+  }
+  function sendLead(data){
+    const endpoint=config.leadEndpoint;
+    if(!endpoint)return;
+    // Falha ao gravar nunca impede a pessoa de chegar ao WhatsApp.
+    try{
+      const body=JSON.stringify(data);
+      if(navigator.sendBeacon&&navigator.sendBeacon(endpoint,new Blob([body],{type:'text/plain;charset=utf-8'})))return;
+      fetch(endpoint,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{});
+    }catch(e){}
+  }
+  leadForm.addEventListener('submit',event=>{
+    event.preventDefault();
+    leadError.hidden=true;
+    const name=leadName.value.replace(/\s+/g,' ').trim();
+    const phone=nationalDigits(leadPhone.value);
+    if(name.length<2)return showError('Informe seu nome.',leadName);
+    if(!validPhone(phone))return showError('Informe um WhatsApp válido com DDD, por exemplo (62) 99999-9999.',leadPhone);
+    lead.name=name;lead.phone=phone;
+    const picked=leadChoice.value?T.findByCode(leadChoice.value)||(leadChoice.value==='EXAMES'?'EXAMES':null):lead.fallback;
+    const choice=picked||null;
+    const params=new URLSearchParams(window.location.search);
+    const p=k=>String(params.get(k)||'').slice(0,200);
+    const interest=choice==='EXAMES'?'Exames e procedimentos':choice?choice.label:'A definir com a equipe';
+    sendLead({
+      name,phone:'55'+phone,
+      interest,kind:choice==='EXAMES'?'exame':choice?choice.kind:'',
+      cta:lead.ctaId,adId:T.readContext().adId||'',
+      utm_source:p('utm_source'),utm_medium:p('utm_medium'),utm_campaign:p('utm_campaign'),utm_content:p('utm_content'),utm_term:p('utm_term'),
+      gclid:p('gclid'),fbclid:p('fbclid'),
+      page:location.origin+location.pathname,referrer:document.referrer.slice(0,300),
+      website:leadForm.elements.website.value
+    });
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'lead_whatsapp',lead_interest:interest,cta_id:lead.ctaId});
+    const message=T.buildMessage({choice,ctaId:lead.ctaId,name});
+    const url=`https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+    leadDialog.close();
+    const win=window.open(url,'_blank');
+    if(win)win.opener=null;else window.location.href=url;
+  });
+  // Clique normal em qualquer botão de WhatsApp abre o formulário antes da conversa.
+  // Ctrl/⌘+clique ou botão do meio seguem direto para o WhatsApp.
+  document.addEventListener('click',event=>{
+    if(!whatsapp||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    const el=event.target.closest('.contact-link,#dialog-contact');
+    if(!el)return;
+    event.preventDefault();
+    openLead(el);
+  });
+  document.querySelector('[data-open-privacy]').addEventListener('click',()=>document.getElementById('privacy-dialog').showModal());
   document.getElementById('privacy-trigger').addEventListener('click',()=>document.getElementById('privacy-dialog').showModal());
   document.getElementById('copyright-year').textContent=String(new Date().getFullYear());
   services=window.NOVA_ERA_SERVICES;renderSpecialties();

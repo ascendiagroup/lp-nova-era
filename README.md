@@ -17,3 +17,9 @@ Todo push na `main` vai para produção automaticamente.
 
 Para atualizar o site, edite `site-nova-era/index.html` (mantenha esse nome) e dê push na `main`.
 Novos arquivos (imagens, CSS, outras páginas) devem ficar dentro de `site-nova-era/`.
+
+## Formulário antes do WhatsApp
+
+Os botões de WhatsApp abrem um formulário (nome e telefone) que grava o contato numa planilha
+do Google antes de abrir a conversa. A instalação da planilha está em `apps-script/README.md`;
+a URL dela vai em `leadEndpoint`, no `index.html`. A pasta `apps-script/` não é publicada no site.
