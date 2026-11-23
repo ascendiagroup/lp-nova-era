@@ -378,13 +378,17 @@ window.NOVA_ERA_SERVICES=[{"id":"servico-001","name":"Consulta com cardiologista
     const params=new URLSearchParams(window.location.search);
     const p=k=>String(params.get(k)||'').slice(0,200);
     const interest=choice==='EXAMES'?'Exames e procedimentos':choice?choice.label:'A definir com a equipe';
+    const leadId=window.crypto&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2,10);
+    // Nomes de campo no padrão do Google (UTM do GA4 e IDs de clique do Google Ads),
+    // prontos para importar conversões offline ou integrar com outro sistema.
     sendLead({
-      name,phone:'55'+phone,
-      interest,kind:choice==='EXAMES'?'exame':choice?choice.kind:'',
-      cta:lead.ctaId,adId:T.readContext().adId||'',
-      utm_source:p('utm_source'),utm_medium:p('utm_medium'),utm_campaign:p('utm_campaign'),utm_content:p('utm_content'),utm_term:p('utm_term'),
+      lead_id:leadId,
+      name,phone:'+55'+phone,
+      interest,interest_type:choice==='EXAMES'?'exame':choice?choice.kind:'',
+      cta:lead.ctaId,ad_id:T.readContext().adId||'',
+      utm_source:p('utm_source'),utm_medium:p('utm_medium'),utm_campaign:p('utm_campaign'),utm_id:p('utm_id'),utm_term:p('utm_term'),utm_content:p('utm_content'),
       gclid:p('gclid'),gbraid:p('gbraid'),wbraid:p('wbraid'),fbclid:p('fbclid'),
-      page:location.origin+location.pathname,referrer:document.referrer.slice(0,300),
+      landing_page:location.origin+location.pathname,referrer:document.referrer.slice(0,300),
       website:leadForm.elements.website.value
     });
     window.dataLayer=window.dataLayer||[];

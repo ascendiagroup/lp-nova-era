@@ -20,8 +20,42 @@ mensagem já preenchida (exame/especialidade, nome, protocolo e `ad_id`).
    leadEndpoint: 'https://script.google.com/macros/s/XXXXXXXX/exec'
    ```
 
-A aba `Leads` e o cabeçalho são criados no primeiro contato. A coluna **Status** fica livre
+A aba `Leads` e o cabeçalho são criados no primeiro contato. A coluna `status` fica livre
 para a equipe marcar quem já foi atendido.
+
+## Colunas da planilha
+
+Os nomes seguem os parâmetros padrão do Google (UTMs do GA4 e IDs de clique do Google Ads),
+para facilitar a integração com outros sistemas e a importação de conversões offline.
+
+| Coluna | Conteúdo |
+|---|---|
+| `created_at` | Data/hora do envio, `yyyy-MM-dd HH:mm:ss-03:00` (formato da importação de conversões do Google Ads) |
+| `lead_id` | ID único do contato (UUID) |
+| `name` | Nome informado |
+| `phone` | Telefone em E.164 (`+5562999999999`) |
+| `interest` / `interest_type` | Atendimento escolhido (ex.: `Raio-X` / `exame`, `Cardiologia` / `consulta`) |
+| `cta` | Botão clicado (mesmo código do `Protocolo: NE-...` da mensagem) |
+| `ad_id` | ID do anúncio, vindo do parâmetro `ad_id` do link |
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_id`, `utm_term`, `utm_content` | UTMs do link |
+| `gclid`, `gbraid`, `wbraid` | IDs de clique do Google Ads (codificação automática) |
+| `fbclid` | ID de clique do Meta |
+| `landing_page`, `referrer` | Página de entrada e origem |
+| `status` | Livre para a equipe |
+
+## Configuração no Google Ads
+
+1. **Codificação automática ativada** (Administrador → Configurações da conta). É ela que
+   adiciona `gclid`/`gbraid`/`wbraid`, usados para importar conversões offline.
+2. **Sufixo do URL final** (Configurações da conta → Opções de URL do anúncio), para todas as campanhas:
+
+   ```
+   utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={creative}&ad_id={creative}
+   ```
+
+   O Google troca `{campaignid}`, `{keyword}` e `{creative}` pelos IDs reais no clique.
+   Em Performance Max o `{creative}` pode vir vazio; nesses casos o `gclid` identifica o clique.
+
 
 ## Alterar o script depois
 
